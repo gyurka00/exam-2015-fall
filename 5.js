@@ -22,11 +22,6 @@ CarStore.prototype.getSumPrice = function() {
     prev.price = prev.price + curr.price;
     return prev;
   }, start);
-
-  // this.cars.forEach(function(car) {
-  //   totalPrice += car.price;
-  // });
-  // console.log(totalPrice);
   return totalPrice.price;
 }
 
