@@ -17,11 +17,17 @@ CarStore.prototype.addCar = function(carBrand, price, year) {
 }
 
 CarStore.prototype.getSumPrice = function() {
-  var totalPrice = 0;
-  this.cars.forEach(function(car) {
-    totalPrice += car.price;
-  });
-  return totalPrice;
+  var start = {type: '', price: 0, year: 0};
+  var totalPrice = this.cars.reduce(function(prev, curr) {
+    prev.price = prev.price + curr.price;
+    return prev;
+  }, start);
+
+  // this.cars.forEach(function(car) {
+  //   totalPrice += car.price;
+  // });
+  // console.log(totalPrice);
+  return totalPrice.price;
 }
 
 CarStore.prototype.getOldestCarType = function() {
